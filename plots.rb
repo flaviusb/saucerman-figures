@@ -43,7 +43,7 @@ class MyPlots
     @table2.read('cellml_data_full.csv', 1)
     @names_to_compare = {
       'y' => 'y', 'w' => 'w', 'x' => 'x', 'z' => 'z', 'v' => 'v', 'Cai' => 'Ca_i', 'Nai' => 'Na_i', 'Vm' => 'V_m', 'time' => 'time',
-      'PKACI' => 'PKAC_I', 'PKACII' => 'PKAC_II'
+      'PKACI' => 'PKAC_I', 'PKACII' => 'PKAC_II', 'cAMPtot' => 'cAMPtot'
     }
     @names_to_compare.each {|matlab, cellml|
       t.def_figure(matlab + ' vs ' + cellml) { compare_plot(matlab, cellml, @table1, @table2) }
@@ -60,7 +60,7 @@ class MyPlots
     t.show_plot_with_legend('legend_scale' => 1.3) {
       t.show_plot('boundaries' => plot_boundaries(xs1,ys1,xs2,ys2,@margin)) {
         t.show_polyline(xs2, ys2, Blue, "CellML: " + name2)
-        t.show_polyline(xs1,ys1,Red, "Matlab: " + name1);
+        t.show_polyline(xs1, ys1, Red, "Matlab: " + name1);
       }
     }
     
