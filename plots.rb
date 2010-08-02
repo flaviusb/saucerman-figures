@@ -18,7 +18,7 @@ class MyPlots
     @figure_maker = FigureMaker.default
 
     t.def_eval_function { |str| eval(str) }
-    
+    t.save_dir = 'generated'
     @opacity_data = nil
     
     @image_right_margin = 0.07
