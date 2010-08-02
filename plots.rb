@@ -66,12 +66,12 @@ class MyPlots
     
   end
     def plot_boundaries(xs1,ys1,xs2,ys2,margin,ymin=nil,ymax=nil,reverse_xaxis=false,reverse_yaxis=false)
-        xmin = (xs1.min > xs2.min)? xs1.min: xs2.min
-        xmax = (xs1.max < xs2.max)? xs1.max: xs2.max
-        ymin = ((ys1.min > ys2.min)? ys1.min: ys2.min) if ymin == nil
-        ymax = ((ys1.max < ys2.max)? ys1.max: ys2.max) if ymax == nil
-        width = (xmax == xmin)? 1 : xmax - xmin
-        height = (ymax == ymin)? 1 : ymax - ymin
+        xmin = (xs1.min < xs2.min)? xs1.min: xs2.min
+        xmax = (xs1.max > xs2.max)? xs1.max: xs2.max
+        ymin = ((ys1.min < ys2.min)? ys1.min: ys2.min) if ymin == nil
+        ymax = ((ys1.max > ys2.max)? ys1.max: ys2.max) if ymax == nil
+        width = (xmax != xmin)? 1 : xmax - xmin
+        height = (ymax != ymin)? 1 : ymax - ymin
         left_boundary = xmin - margin * width
         right_boundary = xmax + margin * width
         top_boundary = ymax + margin * height
