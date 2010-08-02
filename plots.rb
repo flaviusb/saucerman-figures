@@ -45,8 +45,8 @@ class MyPlots
       'y' => 'y', 'w' => 'w', 'x' => 'x', 'z' => 'z', 'v' => 'v', 'Cai' => 'Ca_i', 'Nai' => 'Na_i', 'Vm' => 'V_m', 'time' => 'time',
       'PKACI' => 'PKAC_I', 'PKACII' => 'PKAC_II'
     }
-    @table1_headers.each {|name|
-      t.def_figure(name) { compare_plot(name, @names_to_compare[name], @table1, @table2) }
+    @names_to_compare.each {|matlab, cellml|
+      t.def_figure(matlab + ' vs ' + cellml) { compare_plot(matlab, cellml, @table1, @table2) }
     }
   end
   def compare_plot(name, n_t_c, d1, d2)
