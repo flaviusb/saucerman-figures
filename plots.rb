@@ -22,7 +22,7 @@ class MyPlots
     @opacity_data = nil
     
     @image_right_margin = 0.07
-    @margin = 0.1
+    @margin = 0.3
     tmp = File.new('data_with_header.csv')
     @table1_headers = tmp.readline.chomp.split(",")
     #print @table1_headers 
