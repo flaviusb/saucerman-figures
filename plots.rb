@@ -43,17 +43,24 @@ class MyPlots
     @table2.read('cellml_data_full.csv', 1)
     @names_to_compare = {
       'y' => 'y', 'w' => 'w', 'x' => 'x', 'z' => 'z', 'v' => 'v', 'Cai' => 'Ca_i', 'Nai' => 'Na_i', 'Vm' => 'V_m', 'time' => 'time',
-      'PKACI' => 'PKAC_I', 'PKACII' => 'PKAC_II', 'cAMPtot' => 'cAMPtot'
+      #'PKACI' => 'PKAC_I', 
+      #'PKACII' => 'PKAC_II',
+      'cAMPtot' => 'cAMP_tot', 'm' => 'm'
     }
     @names_to_compare.each {|matlab, cellml|
       t.def_figure(matlab + ' vs ' + cellml) { compare_plot(matlab, cellml, @table1, @table2) }
     }
   end
   def compare_plot(name, n_t_c, d1, d2)
-    t.landscape
+    #t.landscape
     t.do_box_labels("Comparison view", 'Time', nil)
-    t.subplot { t.yaxis_loc = t.ylabel_side = LEFT;
-        t.right_edge_type = AXIS_HIDDEN; part_plot(d1.column(@table1_headers.index(name)), d1.column(@table1_headers.index('time')), name, d2.column(@table2_headers.index(n_t_c)), d2.column(@table2_headers.index('time')), n_t_c) }
+    #t.subplot { t.yaxis_loc = t.ylabel_side = LEFT;
+    #    t.right_edge_type = AXIS_HIDDEN; 
+    #print @table1_headers.index(name)
+    #print "\n"
+    #print @table2_headers.index(n_t_c)
+    #print "\n"
+    part_plot(d1.column(@table1_headers.index(name)), d1.column(@table1_headers.index('time')), name, d2.column(@table2_headers.index(n_t_c)), d2.column(@table2_headers.index('time')), n_t_c) # }
   end
   def part_plot(ys1, xs1, name1, ys2, xs2, name2)
     t.do_box_labels(name1, 'time', '\textcolor{Black}{Values}')
