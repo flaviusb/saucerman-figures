@@ -66,7 +66,9 @@ class MyPlots
     t.do_box_labels(name1, 'time', '\textcolor{Black}{Values}')
     t.show_plot_with_legend('legend_scale' => 1.3) {
       t.show_plot('boundaries' => plot_boundaries(xs1,ys1,xs2,ys2,@margin)) {
+        t.line_width = t.line_width + 3
         t.show_polyline(xs2, ys2, Blue, "CellML: " + name2)
+        t.line_width = t.line_width - 3
         t.show_polyline(xs1, ys1, Red, "Matlab: " + name1);
       }
     }
