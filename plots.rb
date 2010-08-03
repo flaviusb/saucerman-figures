@@ -23,14 +23,14 @@ class MyPlots
     
     @image_right_margin = 0.07
     @margin = 0.3
-    tmp = File.new('data_with_header.csv')
+    tmp = File.new('data_with_header.sv')
     @table1_headers = tmp.readline.chomp.split(",")
     #print @table1_headers 
     #print "\n"
     @table1_length = 0
     tmp.each {|x| @table1_length = @table1_length + 1; }
     tmp.close
-    tmp = File.new('cellml_data_full.csv')
+    tmp = File.new('cellml_data_full.sv')
     @table2_headers = tmp.readline.chomp.split(",")
     #print @table2_headers
     #print "\n"
@@ -38,9 +38,9 @@ class MyPlots
     tmp.each {|x| @table2_length = @table2_length + 1; }
     tmp.close
     @table1 = Dtable.new(@table1_headers.length, @table1_length) #matlab
-    @table1.read('data_with_header.csv', 1)
+    @table1.read('data_with_header.sv', 1)
     @table2 = Dtable.new(@table2_headers.length, @table2_length) #cellml
-    @table2.read('cellml_data_full.csv', 1)
+    @table2.read('cellml_data_full.sv', 1)
     @names_to_compare = {
       'y' => 'y', 'w' => 'w', 'x' => 'x', 'z' => 'z', 'v' => 'v', 'Cai' => 'Ca_i', 'Nai' => 'Na_i', 'Vm' => 'V_m', 'time' => 'time',
       #'PKACI' => 'PKAC_I', 
