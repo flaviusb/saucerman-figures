@@ -463,7 +463,7 @@ ydot(42) = -Bmyo*(1e3*I_Ca_tot*p(62)/(p(59)*zca*Frdy) ...
     +((I_up-I_leak)*p(60)/p(59))-(I_rel*p(61)/p(59)));    % [mM/sec]
 
 % Simulation type
-protocol = 'pace';
+protocol = 'none';
 
 switch lower(protocol)
     case {'none',''},
