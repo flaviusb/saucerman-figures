@@ -25,7 +25,7 @@ http://www.cellml.org/
                        <section id="sec_status">
                                <title>Model Status</title>
                                <para>
-        This CellML version of the Saucerman and McCulloch 2003 model is a translation of Jeff Saucerman's original MATLAB code.  It doesn't run in COR due to the presence of differential algebraic equations (DAEs).  It doesn't run in OpenCell either - but by exporting the CellML to MATLAB using OpenCell and then running the MATLAB output the model does recreate the results of the original published model. Use of additional RDF intial condition hints allow this version to run to recreate the published results using the latest CellML API with IDA solvers. Units require further correction and we are continuting to work on this model.
+        This CellML version of the Saucerman and McCulloch 2003 model is a translation of Jeff Saucerman's original MATLAB code.  It doesn't run in COR due to the presence of differential algebraic equations (DAEs).  Use of additional RDF intial condition hints allow this version to run in the head revision of OpenCell using IDA as the solver. Exporting the CellML to MATLAB using OpenCell and then running the MATLAB output also works. It recreates the results of the original published model. Units require further correction and we are continuting to work on this model.
                   </para>
                        </section>
                        <sect1 id="sec_structure">
